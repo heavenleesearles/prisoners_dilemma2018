@@ -6,13 +6,12 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+team_name = 'Petty' # Only 10 chars displayed.
+strategy_name = 'Collude but retaliate'
+strategy_description = 'Keep colluding except for after getting betrayed'
     
 def move(my_history, their_history, my_score, their_score):
-    ''' Arguments accepted: my_history, their_history are strings.
-    my_score, their_score are ints.
+    ''' Make moves based on the history with other player
     
     Make my move.
     Returns 'c' or 'b'. 
@@ -29,10 +28,8 @@ def move(my_history, their_history, my_score, their_score):
     return 'c'
 
     
-def test_move(my_history, their_history, my_score, their_score, result):
-    '''calls move(my_history, their_history, my_score, their_score)
-    from this module. Prints error if return value != result.
-    Returns True or False, dpending on whether result was as expected.
+def move(my_history, their_history, my_score, their_score):
+    '''Make my move based on the history with this player.
     '''
     real_result = move(my_history, their_history, my_score, their_score)
     if real_result == result:
@@ -55,8 +52,8 @@ if __name__ == '__main__':
               result='b'):
          print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
-    test_move(my_history='bbb',
-              their_history='ccc', 
+    test_move(my_history='bcb',
+              their_history='cbc', 
               # Note the scores are for testing move().
               # The history and scores don't need to match unless
               # that is relevant to the test of move(). Here,
